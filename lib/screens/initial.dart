@@ -18,10 +18,15 @@ Widget meuLayoutWidget() {
   return Padding(
     padding: const EdgeInsets.all(12.0),
     child: Center(
-        child: Image.asset(
-      'images/shopping-cart.png',
-      width: 100,
-      height: 120,
+        child: GestureDetector(
+      child: Image.asset(
+        'images/shopping-cart.png',
+        width: 100,
+        height: 120,
+      ),
+      onTap: () {
+        print('Imagem foi clicada');
+      },
     )),
   );
 }
