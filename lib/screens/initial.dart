@@ -1,4 +1,5 @@
 import 'package:app/screens/login.dart';
+import 'package:app/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -7,15 +8,54 @@ class InitialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Lottie.network(
-            'https://assets9.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.network(
+                'https://assets4.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: Text('Entr'))
+          ],
+        ),
       ),
     );
   }
 }
+
+/*
+Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+            child: Column(
+          children: [
+            Center(
+              child: Lottie.network(
+                  'https://assets4.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
+            ),
+            ElevatedButton(
+              child: const Text('Entrar'),
+              onPressed: () {
+                // Navigate to second route when tapped.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
+              },
+            ),
+          ],
+        )));
+        */
+
+
 
 /*
 
