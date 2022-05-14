@@ -1,32 +1,115 @@
+import 'package:app/screens/login.dart';
+import 'package:app/screens/register.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.redAccent,
-        body: meuLayoutWidget(),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.network(
+                'https://assets4.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: Text('Entr'))
+          ],
+        ),
       ),
     );
   }
 }
 
+/*
+Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+            child: Column(
+          children: [
+            Center(
+              child: Lottie.network(
+                  'https://assets4.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
+            ),
+            ElevatedButton(
+              child: const Text('Entrar'),
+              onPressed: () {
+                // Navigate to second route when tapped.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
+              },
+            ),
+          ],
+        )));
+        */
+
+
+
+/*
+
+Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              /*
+              Image.asset(
+                'images/icon_carrin.png',
+                width: 100,
+                height: 120,
+              ),
+              */
+              
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  child: Text('Boas compra'))
+            ],
+          ),
+        ),
+      ),
+   */   
+
+/*
 Widget meuLayoutWidget() {
   return Padding(
     padding: const EdgeInsets.all(12.0),
     child: Center(
-        child: GestureDetector(
-      child: Image.asset(
-        'images/shopping-cart.png',
-        width: 100,
-        height: 120,
+      child: Column(
+        children: [
+          Image.asset(
+            'images/icon_carrin.png',
+            width: 100,
+            height: 120,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: Text('Boas compra'))
+        ],
       ),
-      onTap: () {
-        print('Imagem foi clicada');
-      },
-    )),
+    ),
   );
 }
+*/

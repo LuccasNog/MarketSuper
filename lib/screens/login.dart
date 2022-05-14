@@ -8,55 +8,55 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
+  //final TextEditingController email = TextEditingController();
+  //final TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.black,
       body: page(),
     );
   }
 }
 
 Widget page() {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
   return Padding(
     padding: const EdgeInsets.all(19.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 120,
-          height: 150,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-                image: NetworkImage(
-                    'https://media-exp1.licdn.com/dms/image/C4E03AQHDro1f0yXZHg/profile-displayphoto-shrink_800_800/0/1632929876725?e=1656547200&v=beta&t=5K6PZ0SmaMhspvIXFibiVvPUI4xSiZLoSOsvG3XQQNU'),
-                fit: BoxFit.fill),
-          ),
-        ),
         const SizedBox(
           height: 30,
           width: 90,
         ),
-        const Text('Acesse sua conta'),
+        Image.asset(
+          'images/icons_avatar.png',
+          width: 100,
+          height: 120,
+        ),
+        const Text(
+          'Acesse sua conta',
+          style: TextStyle(color: Colors.blueAccent),
+        ),
         const SizedBox(
           height: 30,
           width: 90,
         ),
         TextFormField(
+          controller: email,
           decoration: InputDecoration(
-              fillColor: Colors.red,
-              iconColor: Colors.red,
-              hoverColor: Colors.red,
-              suffixIconColor: Colors.red,
-              labelText: 'Digite seu e-mail',
-              border: const OutlineInputBorder(),
-              suffixIcon:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.login))),
+            labelText: 'Informe seu e-mail',
+            hintText: 'name@example.com',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            prefixIcon: const Icon(Icons.email),
+          ),
+          keyboardType: TextInputType.emailAddress,
           obscureText: false,
         ),
         SizedBox(
@@ -64,25 +64,65 @@ Widget page() {
           width: 90,
         ),
         TextFormField(
+          controller: password,
           decoration: InputDecoration(
+              iconColor: Colors.red,
               labelText: 'Informe sua senha',
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.security))),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              prefixIcon: Icon(Icons.security)),
           obscureText: true,
         ),
+        SizedBox(
+          height: 30,
+          width: 90,
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue,
+            onPrimary: Colors.white,
+            shadowColor: Colors.greenAccent,
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(32.0)),
+            minimumSize: const Size(100, 40), //////// HERE
+          ),
+          onPressed: () {
+            print('$email.value, $password.value');
+          },
+          child: Text('Entrar'),
+        )
       ],
     ),
   );
 }
 
+Widget CircleUser() {
+  return CircleAvatar(
+    backgroundImage: NetworkImage(''),
+  );
+}
+
+OutlineInputBorder myinputborder() {
+  //return type is OutlineInputBorder
+  return OutlineInputBorder(
+      //Outline border type for TextFeild
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+      borderSide: BorderSide(
+        color: Colors.redAccent,
+        width: 3,
+      ));
+}
+
 Widget formFielPassword() {
   return TextFormField(
     decoration: InputDecoration(
-        labelText: 'Informe sua senha',
-        border: const OutlineInputBorder(),
-        suffixIcon:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.security))),
+      labelText: 'Informe sua senha',
+      border: const OutlineInputBorder(),
+      suffixIcon:
+          IconButton(onPressed: () {}, icon: const Icon(Icons.security)),
+    ),
     obscureText: true,
   );
 }
@@ -90,10 +130,12 @@ Widget formFielPassword() {
 Widget formFielName() {
   return TextFormField(
     decoration: InputDecoration(
-        labelText: 'Digite seu e-mail',
-        border: const OutlineInputBorder(),
-        suffixIcon:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.login))),
+      labelText: 'Informe seu e-mail',
+      hintText: 'name@example.com',
+      border: const OutlineInputBorder(),
+      suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.login)),
+    ),
+    keyboardType: TextInputType.emailAddress,
     obscureText: false,
   );
 }
