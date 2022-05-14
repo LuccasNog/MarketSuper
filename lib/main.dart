@@ -1,5 +1,6 @@
 import 'package:app/screens/initial.dart';
 import 'package:app/screens/login.dart';
+import 'package:app/screens/register.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'initial',
       routes: {
         'initial': (_) => const InitialPage(),
+        //LoginPage
         //'initial': (_) => const InitialPage(),
       },
     );

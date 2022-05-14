@@ -16,14 +16,20 @@ class InitialPage extends StatelessWidget {
           children: [
             Lottie.network(
                 'https://assets4.lottiefiles.com/packages/lf20_6sxyjyjj.json'),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
-                  );
-                },
-                child: Text('Entr'))
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RegisterPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                'Entrar no aplicativo',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
           ],
         ),
       ),
