@@ -1,7 +1,7 @@
+import 'package:lottie/lottie.dart';
 import 'package:app/screens/login.dart';
 import 'package:app/screens/register.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class InitialPage extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RegisterPage(),
+                    builder: (context) => LoginPage(),
                   ),
                 );
               },
