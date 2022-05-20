@@ -1,3 +1,5 @@
+import 'package:app/screens/register.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
               controller: password,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.red, width: 2.0),
+                  borderSide: const BorderSide(color: Colors.red, width: 1.0),
                   borderRadius: BorderRadius.circular(25.0),
                 ),
                 iconColor: Colors.red,
@@ -79,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginPage(),
+                    builder: (context) => RegisterPage(),
                   ),
                 );
               },

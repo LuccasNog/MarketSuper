@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 
-class ModelsUser {
+class User {
+  final String id;
   final String name;
   final String email;
   final String password;
   final String andress;
-  final String district;
-  final String city;
-  final String state;
-  final String cep;
 
-  ModelsUser({
+  // criando constructor
+  const User({
+    required this.id,
+    // required é para criar um usuário do 0
     required this.name,
     required this.email,
     required this.password,
     required this.andress,
-    required this.district,
-    required this.city,
-    required this.state,
-    required this.cep,
   });
 }
